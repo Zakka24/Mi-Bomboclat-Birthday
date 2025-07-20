@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 COMPLEANNO EPICO! 🎉</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .invitation-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: rotate(-2deg);
+            animation: wobble 2s ease-in-out infinite;
+            border: 5px solid #ff6b6b;
+            position: relative;
+            max-width: 600px;
+        }
+        
+        @keyframes wobble {
+            0%, 100% { transform: rotate(-2deg) scale(1); }
+            50% { transform: rotate(2deg) scale(1.02); }
+        }
+        
+        .title {
+            font-size: 3rem;
+            color: #ff6b6b;
+            font-weight: 700;
+            text-shadow: 3px 3px 0px #333;
+            animation: bounce 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .date-info {
+            background: #4ecdc4;
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+            transform: rotate(1deg);
+            animation: wiggle 3s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(1deg); }
+            25% { transform: rotate(-1deg); }
+            75% { transform: rotate(2deg); }
+        }
+        
+        .emoji-rain {
+            position: fixed;
+            top: -50px;
+            font-size: 30px;
+            animation: fall 4s linear infinite;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .party-button {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px;
+            animation: buttonGlow 2s ease-in-out infinite;
+            text-transform: uppercase;
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        @keyframes buttonGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 107, 107, 0.8);
+                transform: scale(1.05);
+            }
+        }
+        
+        .party-button:hover {
+            transform: scale(1.1) rotate(5deg);
+            transition: all 0.3s ease;
+        }
+        
+        .meme-text {
+            font-size: 2rem;
+            color: #333;
+            margin: 20px 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            animation: rainbow 2s linear infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { color: #ff6b6b; }
+            16% { color: #feca57; }
+            33% { color: #48cab2; }
+            50% { color: #4ecdc4; }
+            66% { color: #45b7d1; }
+            83% { color: #96ceb4; }
+            100% { color: #ff6b6b; }
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            animation: confettiFall 3s linear infinite;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotateZ(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotateZ(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .dancing-emoji {
+            font-size: 4rem;
+            animation: dance 1s ease-in-out infinite;
+            margin: 0 10px;
+        }
+        
+        @keyframes dance {
+            0%, 100% { transform: rotate(-10deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.2); }
+        }
+        
+        .glitch {
+            animation: glitch 2s infinite;
+        }
+        
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        .info-box {
+            background: rgba(255, 255, 255, 0.9);
+            border: 3px dashed #ff6b6b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 15px;
+            animation: shake 4s ease-in-out infinite;
+        }
+        
+        .wishlist-box {
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            border: 3px solid #4ecdc4;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 20px;
+            animation: wishlistGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes wishlistGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(78, 205, 196, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(78, 205, 196, 0.6); }
+        }
+        
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .wish-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #333;
+            border-left: 4px solid #feca57;
+            animation: wishItemFloat 2s ease-in-out infinite;
+            animation-delay: calc(var(--delay) * 0.2s);
+            transition: all 0.3s ease;
+        }
+        
+        .wish-link {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            cursor: pointer;
+        }
+        
+        .wish-link:hover {
+            background: rgba(255, 107, 107, 0.2);
+            transform: scale(1.05) rotate(2deg);
+            border-left-color: #ff6b6b;
+            color: #ff6b6b;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .wish-link:active {
+            transform: scale(0.98);
+        }
+        
+        @keyframes wishItemFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+        }
+        
+        .floating-images {
+            position: fixed;
+            pointer-events: none;
+            z-index: 500;
+            font-size: 3rem;
+            animation: floatAround 8s linear infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes floatAround {
+            0% { 
+                transform: translate(0, 0) rotate(0deg); 
+                opacity: 0.7;
+            }
+            25% { 
+                transform: translate(50px, -30px) rotate(90deg); 
+                opacity: 0.9;
+            }
+            50% { 
+                transform: translate(-20px, -50px) rotate(180deg); 
+                opacity: 0.6;
+            }
+            75% { 
+                transform: translate(-40px, 20px) rotate(270deg); 
+                opacity: 0.8;
+            }
+            100% { 
+                transform: translate(0, 0) rotate(360deg); 
+                opacity: 0.7;
+            }
+        }
+        
+        /* Mobile Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .invitation-card {
+                padding: 20px;
+                margin: 10px;
+                max-width: 95%;
+                transform: rotate(0deg);
+            }
+            
+            .title {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+            
+            .date-info {
+                font-size: 1.1rem;
+                padding: 15px;
+                transform: rotate(0deg);
+            }
+            
+            .meme-text {
+                font-size: 1.4rem;
+                margin: 15px 0;
+            }
+            
+            .dancing-emoji {
+                font-size: 2.5rem;
+            }
+            
+            .party-button {
+                padding: 15px 25px;
+                font-size: 1.2rem;
+                margin: 15px 5px;
+            }
+            
+            .wishlist-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .wish-item {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+            
+            .wishlist-box {
+                padding: 20px;
+                margin: 15px 0;
+            }
+            
+            .info-box {
+                padding: 15px;
+                margin: 15px 0;
+            }
+            
+            /* Reduce floating elements on mobile */
+            .floating-images {
+                font-size: 2rem;
+            }
+            
+            .emoji-rain {
+                font-size: 20px;
+            }
+            
+            .confetti {
+                width: 6px;
+                height: 6px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .invitation-card {
+                padding: 15px;
+                margin: 5px;
+            }
+            
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .date-info {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            
+            .meme-text {
+                font-size: 1.2rem;
+            }
+            
+            .dancing-emoji {
+                font-size: 2rem;
+            }
+            
+            .party-button {
+                padding: 12px 20px;
+                font-size: 1rem;
+                margin: 10px 0;
+                width: 90%;
+            }
+            
+            .wishlist-box h3 {
+                font-size: 1.4rem;
+            }
+            
+            .wish-item {
+                font-size: 0.85rem;
+                padding: 10px;
+            }
+            
+            /* Further reduce animations on very small screens */
+            .floating-images {
+                display: none;
+            }
+            
+            .emoji-rain {
+                font-size: 16px;
+            }
+        }
+        
+        @media screen and (max-width: 320px) {
+            .title {
+                font-size: 1.5rem;
+            }
+            
+            .meme-text {
+                font-size: 1rem;
+            }
+            
+            .party-button {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+            
+            .wish-item {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0px); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="invitation-card">
+            <h1 class="title">🎉 PARTY TIME! 🎉</h1>
+            
+            <div class="dancing-emoji">🕺💃🕺</div>
+            
+            <p class="subtitle">SEI INVITATO AL MIO COMPLEANNO!</p>
+            
+            <div class="meme-text glitch">IT'S MY BIRTHDAY!</div>
+            
+            <div class="date-info">
+                📅 GIOVEDÌ 24 LUGLIO 🎂<br>
+                🕐 DALLE 19:00 IN POI<br>
+                🎊 PREPARATI A FESTEGGIARE! 🎊
+            </div>
+            
+            <div class="info-box">
+                <p style="font-size: 1.2rem; margin-bottom: 10px;">🎁 COSA PORTARE:</p>
+                <p>• Tanta voglia di divertirsi!</p>
+                <p>• Energy drink (optional ma gradito 😎)</p>
+                <p>• Il tuo swagger migliore! 💪</p>
+            </div>
+
+            <div class="wishlist-box">
+                <h3 style="color: #ff6b6b; font-size: 1.8rem; margin-bottom: 15px;">🏆 WISHLIST EPICA 🏆</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">(Se proprio vuoi esagerare... 😏)</p>
+                
+                <div class="wishlist-grid">
+                    <a href="https://www.autoscout24.it/annunci/bmw-m3-e30-dtm-spec-race-car-benzina-bianco-4f5484a1-5540-4674-9e97-bb41c8afac3b?sort=price&desc=1&lastSeenGuidPresent=true&cldtidx=1&position=1&search_id=1vq6nsiaqum&source_otp=t10&ap_tier=t10&source=listpage_search-results&order_bucket=unknown&new_taxonomy_available=true&boosting_product=none&relevance_adjustment=organic&applied_boost_level=t10&boost_level=t10" target="_blank" class="wish-item wish-link">🏎️ BMW M3 E30</a>
+                    
+                    <a href="https://www.chrono24.it/audemarspiguet/royal-oak-perpetual-calendar--id40322028.htm?searchHash=d4c9168_fOx8Ma&pos=7&catalogTestBadge=TCRT_00_false" target="_blank" class="wish-item wish-link">⌚ Audemars Piguet Royal Oak</a>
+                    
+                    <a href="https://www.classic-trader.com/it/automobili/listing/porsche/904/904-carrera-gts/1964/432977" target="_blank" class="wish-item wish-link">🚗 Porsche 904 Carrera GTS</a>
+                    
+                    <a href="https://www.autoscout24.it/annunci/lancia-delta-2-0-16v-hf-integrale-martini-6-originale-benzina-066b3e42-0815-4018-a42f-f066226ec449?sort=price&desc=1&lastSeenGuidPresent=true&cldtidx=2&position=2&search_id=1v4d5ve2obv&source_otp=t10&ap_tier=t10&source=listpage_search-results&order_bucket=unknown&new_taxonomy_available=false&boosting_product=none&relevance_adjustment=organic&applied_boost_level=t10&boost_level=t10" target="_blank" class="wish-item wish-link">🏁 Lancia Delta Integrale Martini</a>
+                    
+                    <a href="https://rmsothebys.com/auctions/lf22/lots/r0043-1985-ferrari-288-gto/" target="_blank" class="wish-item wish-link">🎯 Ferrari 288 GTO</a>
+                    
+                    <a href="https://rmsothebys.com/auctions/lf20/lots/r0068-1981-audi-quattro-group-4/" target="_blank" class="wish-item wish-link">🔥 Audi Quattro Group 4</a>
+                    
+                    <a href="https://www.chrono24.it/cartier/crash-paris-203400-a108488--id41097357.htm?searchHash=e240fb05_c1NPQN&pos=1&catalogTestBadge=TCRT_00_false" target="_blank" class="wish-item wish-link">💎 Cartier Crash</a>
+                    
+                    <a href="https://www.chrono24.it/rolex/rolex-extremely-rare-ref-6062-star-dial-so-called-stelline-18-kt-yg-from-50s--id32283723.htm" target="_blank" class="wish-item wish-link">👑 Rolex Ref. 6062 'Stelline'</a>
+                </div>
+                
+                <p style="font-size: 1.1rem; color: #ff6b6b; margin-top: 15px; font-weight: 700;">
+                    OPPURE ANCHE SOLO UNA PIZZA VA BENE! 🍕😂
+                </p>
+            </div>
+            
+            <div class="meme-text">NO CAP! QUESTO PARTY SARÀ BUSSIN! 🔥</div>
+            
+            <button class="party-button" onclick="launchFireworks()">
+                CLICCA PER I FUOCHI! 🎆
+            </button>
+            
+            <div class="dancing-emoji">🎈🎉🎊</div>
+            
+            <p style="font-size: 1.1rem; margin-top: 20px; color: #666;">
+                RSVP: Dimmi se vieni! 📱<br>
+                <strong>LET'S GOOOOO! 🚀</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Confetti rain
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3', '#54a0ff'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Emoji rain
+        function createEmojiRain() {
+            const emojis = ['🎉', '🎊', '🎈', '🎁', '🎂', '🍰', '🎵', '💃', '🕺', '🔥', '💯', '🚀', '⭐', '💫'];
+            
+            for (let i = 0; i < 20; i++) {
+                const emoji = document.createElement('div');
+                emoji.className = 'emoji-rain';
+                emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(emoji);
+                
+                setTimeout(() => {
+                    emoji.remove();
+                }, 4000);
+            }
+        }
+
+        // Fireworks function
+        function launchFireworks() {
+            // Create multiple bursts of confetti
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createConfetti, i * 200);
+            }
+            
+            // Add screen flash effect
+            const flash = document.createElement('div');
+            flash.style.position = 'fixed';
+            flash.style.top = '0';
+            flash.style.left = '0';
+            flash.style.width = '100vw';
+            flash.style.height = '100vh';
+            flash.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+            flash.style.pointerEvents = 'none';
+            flash.style.zIndex = '9999';
+            flash.style.animation = 'flash 0.3s ease-out';
+            document.body.appendChild(flash);
+            
+            setTimeout(() => flash.remove(), 300);
+            
+            // Play celebration sound (visual feedback)
+            const button = event.target;
+            button.innerHTML = '🎆 BOOM! 🎆';
+            setTimeout(() => {
+                button.innerHTML = 'CLICCA PER I FUOCHI! 🎆';
+            }, 1000);
+        }
+
+        // Add flash animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes flash {
+                0% { opacity: 0; }
+                50% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add floating images around the screen (mobile optimized)
+        function createFloatingImages() {
+            const carEmojis = ['🏎️', '🚗', '🚙', '🏁', '⚡', '💎', '⌚', '👑', '🔥', '💯'];
+            const isMobile = window.innerWidth <= 768;
+            const imageCount = isMobile ? 4 : 8; // Reduce on mobile
+            
+            for (let i = 0; i < imageCount; i++) {
+                const floatingImg = document.createElement('div');
+                floatingImg.className = 'floating-images';
+                floatingImg.innerHTML = carEmojis[Math.floor(Math.random() * carEmojis.length)];
+                floatingImg.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+                floatingImg.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+                floatingImg.style.animationDelay = Math.random() * 8 + 's';
+                floatingImg.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                document.body.appendChild(floatingImg);
+                
+                setTimeout(() => {
+                    if (floatingImg.parentNode) {
+                        floatingImg.remove();
+                    }
+                }, 10000);
+            }
+        }
+
+        // Emoji rain (mobile optimized)
+        function createEmojiRain() {
+            const emojis = ['🎉', '🎊', '🎈', '🎁', '🎂', '🍰', '🎵', '💃', '🕺', '🔥', '💯', '🚀', '⭐', '💫'];
+            const isMobile = window.innerWidth <= 768;
+            const emojiCount = isMobile ? 10 : 20; // Reduce on mobile
+            
+            for (let i = 0; i < emojiCount; i++) {
+                const emoji = document.createElement('div');
+                emoji.className = 'emoji-rain';
+                emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(emoji);
+                
+                setTimeout(() => {
+                    emoji.remove();
+                }, 4000);
+            }
+        }
+
+        // Confetti rain (mobile optimized)
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3', '#54a0ff'];
+            const isMobile = window.innerWidth <= 768;
+            const confettiCount = isMobile ? 25 : 50; // Reduce on mobile
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Add animation delays to wishlist items
+        document.addEventListener('DOMContentLoaded', function() {
+            const wishItems = document.querySelectorAll('.wish-item');
+            wishItems.forEach((item, index) => {
+                item.style.setProperty('--delay', index);
+            });
+        });
+
+        // Start the party effects (mobile optimized intervals)
+        const isMobile = window.innerWidth <= 768;
+        const confettiInterval = isMobile ? 5000 : 3000;
+        const emojiInterval = isMobile ? 6000 : 4000;
+        const floatingInterval = isMobile ? 8000 : 5000;
+        
+        setInterval(createConfetti, confettiInterval);
+        setInterval(createEmojiRain, emojiInterval);
+        setInterval(createFloatingImages, floatingInterval);
+        
+        // Initial burst
+        createConfetti();
+        setTimeout(createEmojiRain, 1000);
+        setTimeout(createFloatingImages, 2000);
+
+        // Add some random glitch effects
+        setInterval(() => {
+            const elements = document.querySelectorAll('.meme-text');
+            elements.forEach(el => {
+                el.style.textShadow = `${Math.random() * 5}px ${Math.random() * 5}px 0px rgba(255, 0, 0, 0.5)`;
+                setTimeout(() => {
+                    el.style.textShadow = 'none';
+                }, 100);
+            });
+        }, 5000);
+
+        // Add dynamic text changes
+        const brainRotTexts = [
+            "IT'S MY BIRTHDAY!",
+            "BIRTHDAY VIBES ONLY! 🔥",
+            "LET'S GET THIS PARTY! 💯",
+            "NO CAP, IT'S LIT! 🚀",
+            "BIRTHDAY ENERGY! ⚡"
+        ];
+
+        let textIndex = 0;
+        setInterval(() => {
+            const glitchElement = document.querySelector('.glitch');
+            if (glitchElement) {
+                glitchElement.textContent = brainRotTexts[textIndex];
+                textIndex = (textIndex + 1) % brainRotTexts.length;
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
